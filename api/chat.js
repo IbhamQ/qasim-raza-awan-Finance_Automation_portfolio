@@ -21,7 +21,7 @@ export default async function handler(req,res){
   if(messages[messages.length-1].role!=='user')return res.status(400).json({error:'Last message must be from visitor'});
   const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),22000);
   try{
-    const response=await fetch('https://api.openai.com/v1/responses',{method:'POST',headers:{Authorization:'Bearer '+key,'Content-Type':'application/json'},body:JSON.stringify({model:process.env.OPENAI_MODEL||'gpt-6-luna',instructions:PROFILE,input:messages.map(m=>({role:m.role,content:m.content})),max_output_tokens:350,store:false}),signal:controller.signal});
+    const response=await fetch('https://api.openai.com/v1/responses',{method:'POST',headers:{Authorization:'Bearer '+key,'Content-Type':'application/json'},body:JSON.stringify({model:process.env.OPENAI_MODEL||'gpt-4.1-mini',instructions:PROFILE,input:messages.map(m=>({role:m.role,content:m.content})),max_output_tokens:350,store:false}),signal:controller.signal});
     const data=await response.json();
     if(!response.ok){console.error('OpenAI response status',response.status);return res.status(502).json({error:'The assistant is temporarily unavailable. Please use the contact links.'});}
     const answer=(data.output||[]).flatMap(o=>o.content||[]).filter(c=>c.type==='output_text').map(c=>c.text).join('\n').trim();
