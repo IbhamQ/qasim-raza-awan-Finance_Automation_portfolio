@@ -1,0 +1,10 @@
+Account,Period,Type,Currency,Budget,Actual
+Software subscriptions,2026-10,expense,AED,12000,14800
+Marketing,2026-10,expense,AED,18000,22500
+Office rent,2026-10,expense,AED,10000,10000
+Contractors,2026-10,expense,AED,15000,12500
+Travel,2026-10,expense,AED,3000,4200
+Consulting revenue,2026-10,revenue,AED,60000,68000
+Service revenue,2026-10,revenue,AED,35000,31000
+New equipment,2026-10,expense,AED,0,1600
+Training,2026-10,expense,AED,2000,1800

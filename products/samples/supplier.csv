@@ -1,0 +1,6 @@
+Invoice,Total,CCY,Vendor
+INV-001,1200.00,AED,Alpha
+INV-002,725.00,AED,Beta
+INV-004,200.00,AED,Delta
+INV-005,300.00,AED,Epsilon
+INV-006,-50.00,AED,Zeta

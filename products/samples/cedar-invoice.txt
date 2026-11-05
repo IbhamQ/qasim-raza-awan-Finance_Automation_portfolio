@@ -1,0 +1,10 @@
+SYNTHETIC DEMONSTRATION INVOICE
+Vendor: Cedar Systems LLC
+Invoice number: CED-2026-1042
+Invoice date: 2026-10-31
+Currency: AED
+Bill to: Example Operations Ltd
+Description: Monthly reporting support
+Subtotal: 2,000.00
+VAT amount: 100.00
+Grand total: 2,100.00

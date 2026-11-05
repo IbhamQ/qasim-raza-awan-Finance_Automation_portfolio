@@ -1,0 +1,9 @@
+Reference,Amount,Currency,Supplier
+INV-001,1200.00,AED,Alpha
+INV-002,750.00,AED,Beta
+INV-003,480.00,AED,Gamma
+INV-004,200.00,AED,Delta
+INV-004,200.00,AED,Delta
+INV-006,-50.00,AED,Zeta
+,100.00,AED,Omega
+INV-008,bad,AED,Theta
