@@ -16,3 +16,7 @@ body:before{display:none}header{z-index:100;background:#080f21d9;border-bottom-c
 .hero .motion-control{right:auto;bottom:auto}.hero-copy .hero-note{margin-top:12px}
 
 .sheet-float{z-index:2}.floating-card{backface-visibility:hidden}.code-card,.pipe-card{z-index:4}.exception-card{z-index:5}.sheet-plane{backface-visibility:hidden}
+
+/* Keep the opening content close to the navigation on large screens. */
+@media(min-width:901px){.hero{padding-top:34px}.hero-layout{min-height:0;align-items:start}.hero-copy{padding-top:14px;padding-bottom:0}.finance-scene{height:535px}.hero .metrics{margin-top:28px}}
+@media(min-width:1440px){.hero{padding-top:30px}.hero-copy{padding-top:12px}}
