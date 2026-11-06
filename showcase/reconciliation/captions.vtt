@@ -1,0 +1,22 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:08.000
+Map the two sources
+Match invoice reference, amount, currency and supplier on both sides.
+
+2
+00:00:08.000 --> 00:00:16.000
+Verify complete source coverage
+The sample run accounts for all 13 rows: 8 ledger rows and 5 supplier rows.
+
+3
+00:00:16.000 --> 00:00:24.000
+Investigate the exception register
+Duplicates stay open; INV-002 shows a 25.00 amount difference.
+
+4
+00:00:24.000 --> 00:00:32.000
+Trace the totals before export
+Source-row evidence and currency totals support the downloadable CSV report.
+

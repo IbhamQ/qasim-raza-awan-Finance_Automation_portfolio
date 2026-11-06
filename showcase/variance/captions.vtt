@@ -1,0 +1,22 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:08.000
+Map budget and actuals
+Account, period, type and currency establish the scope of the comparison.
+
+2
+00:00:08.000 --> 00:00:16.000
+Check the sample run
+Nine source rows are accounted for, with seven material variances and no invalid rows.
+
+3
+00:00:16.000 --> 00:00:24.000
+Prioritize the unfavorable items
+Revenue shortfalls and expense overspends are classified using account type.
+
+4
+00:00:24.000 --> 00:00:32.000
+Trace each result to its source
+The evidence table retains period, currency and source-row references for CSV review.
+

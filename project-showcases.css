@@ -1,19 +1,10 @@
-.real-projects{scroll-margin-top:90px}
-.real-projects .real-project-lead{max-width:790px;color:var(--muted);line-height:1.8}
-.real-project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:32px}
-.real-project-card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:linear-gradient(150deg,#142131,#0e1622);display:flex;flex-direction:column}
-.real-project-visual{padding:14px;background:#071119;border-bottom:1px solid var(--line)}
-.real-project-visual>a{display:block}
-.real-project-visual .hero-shot{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;border:1px solid #315063;border-radius:9px;background:#fff}
-.shot-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:8px}
-.shot-strip img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;border:1px solid #2a4052;border-radius:6px;opacity:.78;transition:.2s}
-.shot-strip a:hover img{opacity:1;border-color:var(--accent)}
-.real-project-copy{padding:24px;display:flex;flex-direction:column;flex:1}
-.real-project-copy .project-label{font-size:10px;letter-spacing:1.5px;color:var(--accent);font-weight:700}
-.real-project-copy h3{font:700 22px/1.25 'Space Grotesk';margin:11px 0 9px}
-.real-project-copy p{color:var(--muted);font-size:13px;line-height:1.75;margin:0}
-.real-project-meta{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0}
-.real-project-meta span{border:1px solid #33485c;border-radius:20px;padding:6px 9px;color:#bed0de;font-size:10px}
-.real-project-copy video{width:100%;aspect-ratio:16/9;border:1px solid #315063;border-radius:9px;background:#071119;margin-top:auto}
-.real-project-note{font-size:11px;color:#8197a7;line-height:1.7;margin-top:20px;border-left:2px solid #477b70;padding-left:14px}
-@media(max-width:850px){.real-project-grid{grid-template-columns:1fr}}
+
+.curated-section{scroll-margin-top:90px}.curated-intro{max-width:780px;color:var(--muted);font-size:16px;line-height:1.8}
+.curated-list{display:grid;gap:40px;margin-top:34px}.curated-card{padding:30px;border:1px solid #2c4053;border-radius:20px;background:linear-gradient(150deg,#152334,#0d1723);overflow:hidden}
+.curated-heading{display:flex;justify-content:space-between;align-items:center;gap:24px}.curated-type{font-size:11px;font-weight:700;letter-spacing:1px;color:#96d6c8;text-transform:uppercase}.curated-heading h3{font:700 clamp(24px,3vw,33px)/1.2 'Space Grotesk',sans-serif;letter-spacing:-.7px;margin:12px 0 8px}
+.curated-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.curated-actions .btn{white-space:nowrap;font-size:12px;padding:11px 14px}.curated-description{max-width:900px;color:#b1c3d5;line-height:1.8;font-size:14px;margin:14px 0 24px}
+.curated-player{background:#08121e;border:1px solid #314b60;border-radius:12px;overflow:hidden}.curated-player video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#0c1724}.curated-player video::cue{background:#0c1724e8;color:white;font-size:16px}
+.curated-chapters{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.curated-chapters button{cursor:pointer;text-align:left;padding:10px 12px;border:1px solid #2b4358;border-radius:7px;background:#132233;color:#c4d3e2;font-size:11px;line-height:1.5}.curated-chapters button span{color:#92d8c6;font-weight:700;margin-right:8px}.curated-chapters button:hover{border-color:#8ce5ce;background:#183b3a}.curated-chapters button:focus-visible{outline:2px solid #8ce5ce;outline-offset:3px}
+.curated-footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:18px;font-size:11px;color:#8fa7bc;line-height:1.7}
+@media(max-width:850px){.curated-heading{display:block}.curated-actions{justify-content:flex-start;margin-top:18px}.curated-card{padding:20px}.curated-chapters{display:grid;grid-template-columns:1fr 1fr}.curated-chapters button{font-size:10px}.curated-footer{gap:6px}}
+@media(max-width:560px){.curated-card{padding:14px;border-radius:12px}.curated-description{font-size:13px}.curated-type{font-size:9px}.curated-chapters{grid-template-columns:1fr}.curated-player{margin:0 -8px}.curated-footer{font-size:10px}}

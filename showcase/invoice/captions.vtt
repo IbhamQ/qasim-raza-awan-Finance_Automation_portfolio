@@ -1,0 +1,22 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:08.000
+Extract the sample PDF
+Read selectable invoice text while retaining the original source evidence.
+
+2
+00:00:08.000 --> 00:00:16.000
+Test the arithmetic control
+An edited total creates a mismatch and moves the invoice into review.
+
+3
+00:00:16.000 --> 00:00:24.000
+Correct and validate the register
+Seven header fields are captured; subtotal plus tax agrees with the corrected total.
+
+4
+00:00:24.000 --> 00:00:32.000
+Review the source, then export
+Editable fields remain visible beside the source text and CSV export action.
+
