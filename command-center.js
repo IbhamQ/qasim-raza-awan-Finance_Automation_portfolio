@@ -34,6 +34,27 @@
  for(const link of dock.querySelectorAll('nav a')){link.title=link.textContent.trim();link.setAttribute('aria-label',link.textContent.trim());}
  const key='qaf-dock-'+document.documentElement.dataset.brand;
  function set(collapsed){document.documentElement.classList.toggle('dock-collapsed',collapsed);button.setAttribute('aria-expanded',String(!collapsed));button.setAttribute('aria-label',collapsed?'Expand sidebar':'Collapse sidebar');button.querySelector('span').textContent=collapsed?'Expand sidebar':'Collapse sidebar';}
- try{set(localStorage.getItem(key)==='collapsed')}catch{set(false)}
- button.addEventListener('click',()=>{const collapsed=!document.documentElement.classList.contains('dock-collapsed');set(collapsed);try{localStorage.setItem(key,collapsed?'collapsed':'expanded')}catch{}});
+ set(true)
+ button.addEventListener('click',()=>{const collapsed=!document.documentElement.classList.contains('dock-collapsed');set(collapsed)});
+})();
+
+// Shared navigation and project discovery.
+(()=>{
+ const menu=document.querySelector('.nav-toggle'),nav=document.querySelector('.topbar nav');
+ function close(){nav?.classList.remove('is-open');menu?.setAttribute('aria-expanded','false');}
+ menu?.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');menu.setAttribute('aria-expanded',String(open));});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+ document.addEventListener('click',e=>{if(!e.target.closest('.topbar'))close();});
+ for(const b of document.querySelectorAll('[data-filter]'))b.addEventListener('click',()=>{
+  const key=b.dataset.filter;
+  document.querySelectorAll('[data-filter]').forEach(x=>{x.classList.toggle('active',x===b);x.setAttribute('aria-pressed',String(x===b));});
+  document.querySelectorAll('[data-category]').forEach(x=>{x.hidden=key!=='all'&&!x.dataset.category.split(' ').includes(key);});
+  const more=document.querySelector('.more-projects');if(more&&key!=='all')more.open=true;
+ });
+ document.querySelectorAll('[data-go-filter]').forEach(a=>a.addEventListener('click',()=>document.querySelector('[data-filter="'+a.dataset.goFilter+'"]')?.click()));
+ document.querySelectorAll('[data-copy-email]').forEach(b=>b.addEventListener('click',async()=>{
+  const status=document.querySelector('.copy-status');try{await navigator.clipboard.writeText(b.dataset.copyEmail);status.textContent='Email address copied.';b.textContent='Copied ✓';setTimeout(()=>b.textContent='Copy email address',2200);}catch{status.textContent='Copy this address: '+b.dataset.copyEmail;}
+ }));
+ const floating=document.querySelector('.floating-contact'),hero=document.querySelector('.command-hero');
+ if(floating&&hero&&'IntersectionObserver'in window)new IntersectionObserver(([entry])=>{floating.hidden=entry.isIntersecting;},{threshold:0}).observe(hero);
 })();
