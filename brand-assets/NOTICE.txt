@@ -1,1 +1,3 @@
 Software marks are sourced from Simple Icons v11.15.0 (CC0 project). Individual brand marks remain subject to their owners' trademark rights. Display indicates integration/workflow examples, not endorsement. Source: https://github.com/simple-icons/simple-icons/tree/11.15.0
+
+QuickBooks, Zapier, Zoho and Microsoft marks: Simple Icons project. Microsoft mark is used with the explicit Dynamics NAV label and does not represent Dynamics 365 experience. n8n: official project/brand icon. Brand marks are not endorsements.

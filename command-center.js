@@ -11,9 +11,9 @@
 })();
 (()=>{
  const root=document.documentElement,theme=document.querySelector('#theme-toggle');
- try{root.classList.toggle('light-mode',localStorage.getItem('qaf-theme')==='light');}catch{}
+ const themeKey='qaf-theme-'+(root.dataset.brand||'company');try{const saved=localStorage.getItem(themeKey);root.classList.toggle('light-mode',saved?saved==='light':root.dataset.brand==='personal');}catch{}
  function themeLabel(){const light=root.classList.contains('light-mode');theme?.setAttribute('aria-pressed',String(light));theme?.setAttribute('aria-label',light?'Switch to dark mode':'Switch to light mode');}
- themeLabel();theme?.addEventListener('click',()=>{const light=root.classList.toggle('light-mode');try{localStorage.setItem('qaf-theme',light?'light':'dark');}catch{}themeLabel();});
+ themeLabel();theme?.addEventListener('click',()=>{const light=root.classList.toggle('light-mode');try{localStorage.setItem(themeKey,light?'light':'dark');}catch{}themeLabel();});
  const header=document.querySelector('.topbar'),dockLinks=[...document.querySelectorAll('.side-dock nav a')],back=document.querySelector('.back-top'),progress=document.querySelector('.scroll-progress i');
  function jump(hash){const target=document.getElementById(decodeURIComponent(hash.slice(1)));if(!target)return;const top=target.getBoundingClientRect().top+scrollY-(header?.offsetHeight||70)-14;history.pushState(null,'',hash);window.scrollTo({top:Math.max(0,top),behavior:'instant'});if(hash==='#main'){target.setAttribute('tabindex','-1');target.focus({preventScroll:true});}document.body.classList.remove('menu-open');document.querySelector('.topbar nav')?.classList.remove('is-open');document.querySelector('.nav-toggle')?.setAttribute('aria-expanded','false');}
  document.addEventListener('click',event=>{const a=event.target.closest('a[href^="#"]');if(!a||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;const hash=a.getAttribute('href');if(!hash||hash==='#')return;if(document.getElementById(hash.slice(1))){event.preventDefault();document.querySelector('#site-search')?.close();jump(hash);}});
