@@ -25,3 +25,15 @@
  function openSearch(){if(!dialog)return;dialog.showModal();input.value='';search();input.focus();}document.querySelector('#search-open')?.addEventListener('click',openSearch);document.querySelector('#search-close')?.addEventListener('click',()=>dialog.close());input?.addEventListener('input',search);document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();if(dialog?.open)dialog.close();else openSearch();}});dialog?.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
  document.querySelector('#project-form')?.addEventListener('submit',e=>{const form=e.currentTarget;if(!form.checkValidity())return;const b=form.querySelector('button[type=submit]');b.setAttribute('aria-busy','true');b.classList.add('is-loading');setTimeout(()=>{b.removeAttribute('aria-busy');b.classList.remove('is-loading');},1200);});
 })();
+
+// A persistent, keyboard-accessible rail; section links retain their labels when collapsed.
+(()=>{const dock=document.querySelector('.side-dock');if(!dock)return;
+ const button=document.createElement('button');button.className='dock-toggle';button.type='button';
+ button.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM9 4v16m6-10-3 3 3 3"/></svg><span>Collapse sidebar</span>';
+ dock.id='section-dock';button.setAttribute('aria-controls','section-dock');dock.prepend(button);
+ for(const link of dock.querySelectorAll('nav a')){link.title=link.textContent.trim();link.setAttribute('aria-label',link.textContent.trim());}
+ const key='qaf-dock-'+document.documentElement.dataset.brand;
+ function set(collapsed){document.documentElement.classList.toggle('dock-collapsed',collapsed);button.setAttribute('aria-expanded',String(!collapsed));button.setAttribute('aria-label',collapsed?'Expand sidebar':'Collapse sidebar');button.querySelector('span').textContent=collapsed?'Expand sidebar':'Collapse sidebar';}
+ try{set(localStorage.getItem(key)==='collapsed')}catch{set(false)}
+ button.addEventListener('click',()=>{const collapsed=!document.documentElement.classList.contains('dock-collapsed');set(collapsed);try{localStorage.setItem(key,collapsed?'collapsed':'expanded')}catch{}});
+})();
