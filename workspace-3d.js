@@ -12,17 +12,17 @@ function mount(T,host){
  renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.5));
  renderer.outputColorSpace=T.SRGBColorSpace;renderer.setClearColor(0x182d45,0);
  renderer.domElement.setAttribute('aria-hidden','true');viewport.append(renderer.domElement);
+ const company=host.dataset.workspace==='company';
  const scene=new T.Scene(),camera=new T.OrthographicCamera(-8,8,4,-4,.1,100);
  camera.position.set(9,11,17);camera.lookAt(0,0,0);
  scene.add(new T.AmbientLight(0xffffff,2));
  const light=new T.DirectionalLight(0xfff1dc,3);light.position.set(-5,10,8);scene.add(light);
  const geometry=new T.BoxGeometry(1,1,1),edges=new T.EdgesGeometry(geometry),resources=[geometry,edges],materials=[];
  const mat=color=>{const m=new T.MeshStandardMaterial({color,roughness:1,metalness:0,flatShading:true});materials.push(m);return m;};
- const stone=mat(0xb8c3c9),copper=mat(0xba7953),white=mat(0xe8e0d3),edgeMat=new T.LineBasicMaterial({color:0x667d92});materials.push(edgeMat);
+ const stone=mat(company?0xb8c3c9:0xc6b9bd),copper=mat(company?0xba7953:0x9a4b5f),white=mat(0xe8e0d3),edgeMat=new T.LineBasicMaterial({color:0x667d92});materials.push(edgeMat);
  const grid=new T.GridHelper(18,18,0x597087,0x344c63);grid.position.y=-.04;scene.add(grid);resources.push(grid.geometry);materials.push(grid.material);
  function box(x,z,w,h,d,material){const g=new T.Group(),mesh=new T.Mesh(geometry,material),wire=new T.LineSegments(edges,edgeMat);g.add(mesh,wire);g.scale.set(w,h,d);g.position.set(x,h/2,z);scene.add(g);return g;}
- function path(points){const g=new T.BufferGeometry().setFromPoints(points.map(p=>new T.Vector3(p[0],.08,p[1]))),m=new T.LineBasicMaterial({color:0xb9825d});resources.push(g);materials.push(m);scene.add(new T.Line(g,m));}
- const company=host.dataset.workspace==='company';
+ function path(points){const g=new T.BufferGeometry().setFromPoints(points.map(p=>new T.Vector3(p[0],.08,p[1]))),m=new T.LineBasicMaterial({color:company?0xb9825d:0xaa7180});resources.push(g);materials.push(m);scene.add(new T.Line(g,m));}
  const routes=company?[[[-6,0],[-1,0],[-1,-2.3],[5,-2.3]],[[-1,0],[2,0],[2,2.5],[5,2.5]]]:[[[-6,-2],[-2,-2],[-2,0],[1,0],[1,-2.3],[5,-2.3]],[[-6,2],[-3,2],[-3,0],[1,0],[1,2.5],[5,2.5]]];
  routes.forEach(path);
  if(company){box(-6,0,2.1,1.5,1.8,white);box(-1,0,2.1,2.1,2.1,stone);box(5,-2.3,2.1,1.4,1.8,copper);box(5,2.5,2.1,1.1,1.8,white);}
