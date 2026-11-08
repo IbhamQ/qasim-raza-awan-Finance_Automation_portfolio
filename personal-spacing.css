@@ -43,7 +43,7 @@
 .personal-command .command-footer{padding:26px 0}
 @media(max-width:980px){.personal-command .command-hero{gap:24px}.personal-command .project h3{font-size:24px}}
 @media(max-width:760px){.personal-command .command-hero{padding:24px 0 20px;gap:18px}.personal-command .hero-copy h1{font-size:clamp(43px,10vw,58px)}.personal-command .hero-copy h2{font-size:28px}.personal-command .hero-copy .hero-qualification{font-size:8px;margin-bottom:14px}.personal-command .mesh-viewport{height:clamp(190px,50vw,290px)}.personal-command .section,.personal-command .contact{padding:24px 0}.personal-command .impact-grid>div{padding-top:14px;padding-bottom:14px}.personal-command .project{padding:20px}.personal-command .company-tile{padding:16px 0}.personal-command .about{gap:22px}.personal-command .credentials{padding-top:16px}}
-/* Fill uneven columns with existing relevant content, rather than stretching them. */
+/* Preserve the compact column composition in the redesigned portfolio. */
 .personal-command .command-workspace>.impact-grid{margin:12px 0 0;grid-template-columns:1fr 1fr 1.3fr}
 .personal-command .command-workspace>.impact-grid>div{display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding:12px 10px}
 .personal-command .command-workspace>.impact-grid>div:first-child{padding-left:0}

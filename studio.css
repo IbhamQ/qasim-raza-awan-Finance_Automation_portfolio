@@ -1,0 +1,62 @@
+/* A coherent custom system informed by editorial grids and dimensional data studies. */
+.personal-command .site-shell{background-image:linear-gradient(90deg,transparent calc(50% - .5px),color-mix(in srgb,var(--line) 24%,transparent) 50%,transparent calc(50% + .5px));background-size:100% 100%;background-position:top center}
+.personal-command main>section[data-index]{position:relative}
+.personal-command main>section[data-index]:before{content:attr(data-index);position:absolute;top:30px;right:0;color:var(--accent);font:9px var(--mono);letter-spacing:.1em}
+.personal-command .section-head h2{max-width:90%}
+.personal-command .command-workspace .workspace-head{font-size:9px;letter-spacing:.12em}
+.personal-command .hero-copy h1{letter-spacing:-.065em}
+.personal-command .studio-project{background:var(--panel);border-radius:2px;border:1px solid var(--line);box-shadow:0 3px 0 color-mix(in srgb,var(--line) 40%,transparent);transition:box-shadow .2s,border-color .2s}
+.personal-command .studio-project:hover,.personal-command .studio-project:focus-within{border-color:var(--accent);box-shadow:0 5px 0 color-mix(in srgb,var(--accent) 18%,transparent)}
+.personal-command .studio-project .eyebrow{font-size:9px}
+.personal-command .studio-project h3{font-size:25px;margin-bottom:18px}
+.personal-command .studio-project .project-result{margin-top:0;min-height:85px;color:var(--ink)}
+.case-detail{margin:0 0 18px;border-block:1px solid var(--line)}
+.case-detail summary{padding:11px 0;font-size:11px;color:var(--accent)}
+.case-detail summary:after{content:'+';float:right;font-size:16px}
+.case-detail[open] summary:after{content:'−'}
+.case-detail dl{padding:8px 0 0}
+.personal-command .studio-project .project-bottom{margin-top:auto}
+.personal-command .company-grid{gap:0 24px}
+.personal-command .company-tile{display:grid;grid-template-columns:38px minmax(0,1fr);gap:8px 12px;align-content:start}
+.personal-command .company-mark{grid-row:1/3;margin:0;align-items:start;height:auto}
+.personal-command .company-tile>strong{margin:0;align-self:center}
+.personal-command .company-tile>span{grid-column:2}
+.personal-command .company-mark img{max-width:32px!important;object-position:left top}
+.personal-command .software-deck{background:var(--bg)}
+.personal-command .about{background:var(--bg)}
+.personal-command .personal-closing{background:var(--bg)}
+.analytics-scene svg{width:100%;height:100%;overflow:visible;font-family:var(--mono);font-size:10px;fill:var(--muted)}
+.analytics-scene .chart-kicker{fill:var(--accent);font-size:11px;letter-spacing:.1em}
+.analytics-scene .chart-meta{font-size:8px;letter-spacing:.1em}
+.chart-floor{fill:none;stroke:var(--line);stroke-width:.7;opacity:.75}
+.chart-column{stroke:var(--bg);stroke-width:.7;transform-box:fill-box;transform-origin:center bottom;animation:chart-build 1.2s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--column)*.12s)}
+.budget-column .bar-front{fill:color-mix(in srgb,var(--muted) 65%,var(--bg))}.budget-column .bar-side{fill:color-mix(in srgb,var(--muted) 45%,var(--bg))}.budget-column .bar-top{fill:color-mix(in srgb,var(--muted) 85%,var(--bg))}
+.actual-column .bar-front{fill:var(--accent)}.actual-column .bar-side{fill:color-mix(in srgb,var(--accent) 70%,var(--bg))}.actual-column .bar-top{fill:color-mix(in srgb,var(--accent) 72%,var(--panel))}
+@keyframes chart-build{from{opacity:0;transform:translateY(10px) scaleY(.85)}to{opacity:1;transform:none}}
+.month-labels{font-size:9px;fill:var(--accent)}
+.chart-source{font-size:8px;fill:var(--accent)}.chart-source path{stroke:var(--line);stroke-width:2;fill:none}.chart-source path.source-route{stroke:var(--accent);stroke-width:1.5;stroke-dasharray:6 8;animation:chart-route 5s linear infinite}
+@keyframes chart-route{to{stroke-dashoffset:-84}}
+.chart-register rect{fill:var(--panel);stroke:var(--line)}.chart-register path{fill:none;stroke:var(--line)}.chart-register text{fill:var(--ink);font-size:10px}.chart-register .register-heading{fill:var(--accent);font-size:9px}.chart-register .register-total{fill:var(--good);font-size:11px}
+.chart-legend{font-size:8px;fill:var(--muted);letter-spacing:.04em}.chart-legend .actual-key{fill:var(--accent)}.chart-legend .budget-key{fill:var(--muted)}
+/* Agent journey and system architecture: legible layers, explicit handovers. */
+.journey-scene{padding:22px 20px;color:var(--ink)}
+.journey-heading{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding-bottom:18px;font:10px var(--mono);color:var(--accent)}
+.journey-heading small{font-size:8px;color:var(--muted)}
+.journey-track{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:30px 0 26px}
+.journey-track:before{content:'';position:absolute;top:45px;left:0;right:0;height:1px;background:var(--accent);z-index:-1}
+.journey-node{padding:13px 10px;background:var(--panel);border:1px solid var(--line);box-shadow:3px 3px 0 var(--panel2);animation:journey-focus 12.5s steps(1,end) infinite;animation-delay:calc(var(--phase)*2.5s)}
+.journey-node span{font:8px var(--mono);color:var(--accent)}.journey-node strong{font:500 15px var(--font);display:block;margin:9px 0 6px}.journey-node small{font:8px var(--mono);color:var(--muted)}
+@keyframes journey-focus{0%,19%{border-color:var(--accent);background:var(--panel2)}20%,100%{border-color:var(--line);background:var(--panel)}}
+.journey-detail{display:grid;grid-template-columns:.85fr 1.15fr;border-block:1px solid var(--line);gap:24px;padding:19px 0}.journey-label{font:8px var(--mono);color:var(--accent);letter-spacing:.08em}.journey-detail p{font:12px/1.8 var(--font);margin-top:10px;color:var(--ink)}
+.journey-footer{display:flex;justify-content:space-between;margin-top:19px;font:7px var(--mono);color:var(--muted)}
+.company-command .service-paths{border-radius:2px}.company-command .service-path{position:relative;padding:30px;background:var(--panel)}.company-command .finance-path{background:var(--panel2)}
+.company-command .service-path:after{content:'';position:absolute;right:24px;top:24px;width:10px;height:10px;border-top:1px solid var(--accent);border-right:1px solid var(--accent);transition:translate .2s}
+.company-command .service-path:hover:after{translate:3px -3px}
+.architecture-strip{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:24px 0 0;padding:22px 0;border-block:1px solid var(--line)}
+.architecture-strip>span{font-size:12px;display:grid;gap:7px}.architecture-strip b{font:9px var(--mono);color:var(--accent)}.architecture-strip small{font-size:10px;color:var(--muted)}.architecture-strip i{font-style:normal;color:var(--accent)}
+.company-command .capability summary{display:flex;align-items:center;gap:12px}.company-command .capability summary:before{content:attr(data-service-number);font:9px var(--mono);color:var(--accent)}
+.company-command .capability summary:after{margin-left:auto}.company-command .capability[open]{background:color-mix(in srgb,var(--panel) 70%,transparent);padding-inline:12px;margin-inline:-12px}.company-command .capability[open] summary{color:var(--accent)}
+.company-command .workflow-visual{box-shadow:4px 4px 0 var(--panel2);border-radius:3px}.company-command .demo-card{padding:22px 16px;background:var(--panel)}
+@media(max-width:980px){.personal-command .studio-project{display:flex}.personal-command .studio-project .case-detail{grid-column:auto}.personal-command .studio-project .project-result{min-height:0}.architecture-strip{gap:12px}.architecture-strip>span{font-size:11px}.architecture-strip small{font-size:9px}}
+@media(max-width:760px){.personal-command .site-shell{background-image:none}.personal-command main>section[data-index]:before{top:24px;font-size:8px}.personal-command .section-head h2{max-width:92%}.personal-command .company-tile{grid-template-columns:34px minmax(0,1fr)}.personal-command .studio-project h3{font-size:24px}.architecture-strip{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:20px 0}.architecture-strip>i{display:none}.company-command .service-path{padding:24px}.company-command .demo-card{padding:20px 14px}.personal-command .credentials:empty{display:none}}
+@media(prefers-reduced-motion:reduce){.chart-column,.source-route,.journey-node{animation:none!important}.chart-column{opacity:1;transform:none}}
