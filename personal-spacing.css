@@ -43,3 +43,19 @@
 .personal-command .command-footer{padding:26px 0}
 @media(max-width:980px){.personal-command .command-hero{gap:24px}.personal-command .project h3{font-size:24px}}
 @media(max-width:760px){.personal-command .command-hero{padding:24px 0 20px;gap:18px}.personal-command .hero-copy h1{font-size:clamp(43px,10vw,58px)}.personal-command .hero-copy h2{font-size:28px}.personal-command .hero-copy .hero-qualification{font-size:8px;margin-bottom:14px}.personal-command .mesh-viewport{height:clamp(190px,50vw,290px)}.personal-command .section,.personal-command .contact{padding:24px 0}.personal-command .impact-grid>div{padding-top:14px;padding-bottom:14px}.personal-command .project{padding:20px}.personal-command .company-tile{padding:16px 0}.personal-command .about{gap:22px}.personal-command .credentials{padding-top:16px}}
+/* Fill uneven columns with existing relevant content, rather than stretching them. */
+.personal-command .command-workspace>.impact-grid{margin:12px 0 0;grid-template-columns:1fr 1fr 1.3fr}
+.personal-command .command-workspace>.impact-grid>div{display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding:12px 10px}
+.personal-command .command-workspace>.impact-grid>div:first-child{padding-left:0}
+.personal-command .command-workspace>.impact-grid strong{font-size:25px}
+.personal-command .command-workspace>.impact-grid span{font-size:9px;line-height:1.5;max-width:170px}
+.personal-command .credentials .about-process{margin-top:8px;padding-top:14px;border-top:1px solid var(--line)}
+.personal-command .credentials .about-process p{font-size:12px;margin:0}
+.personal-command .credentials .about-process h3{font-size:18px}
+.personal-command .project-grid:has(>[hidden]),.personal-command .additional-projects:has(>[hidden]){grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.personal-command .personal-closing{display:grid;grid-template-columns:1fr 1fr;gap:40px;border-top:1px solid var(--line)}
+.personal-command .personal-closing>.section,.personal-command .personal-closing>.contact{border-top:0}
+.personal-command .personal-closing h2{font-size:clamp(27px,2.4vw,33px)}
+.personal-command .personal-closing .contact p{font-size:13px}
+@media(max-width:980px){.personal-command .personal-closing{gap:26px}.personal-command .command-workspace>.impact-grid strong{font-size:23px}}
+@media(max-width:760px){.personal-command .personal-closing{grid-template-columns:1fr;gap:0}.personal-command .personal-closing>.contact{border-top:1px solid var(--line)}.personal-command .command-workspace>.impact-grid>div:last-child{grid-column:auto;flex-direction:column;border-top:0}.personal-command .command-workspace>.impact-grid>div{padding:12px 8px}.personal-command .command-workspace>.impact-grid strong{font-size:24px}.personal-command .command-workspace>.impact-grid span{font-size:9px}.personal-command .credentials .about-process{margin-top:4px}}
