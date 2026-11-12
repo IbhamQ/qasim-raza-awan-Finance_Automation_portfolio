@@ -24,6 +24,7 @@ export default async function handler(req,res){
   try{
     const response=await fetch('https://api.openai.com/v1/responses',{method:'POST',headers:{Authorization:'Bearer '+key,'Content-Type':'application/json'},body:JSON.stringify({model:process.env.OPENAI_MODEL||'gpt-4.1-mini',instructions:PROFILE,input:messages.map(m=>({role:m.role,content:m.content})),max_output_tokens:350,store:false}),signal:controller.signal});
     const data=await response.json();
+    if(response.status===429){console.error('OpenAI response status',429);return res.status(429).json({error:'The live AI service is temporarily rate-limited. Please try again later.'});}
     if(!response.ok){console.error('OpenAI response status',response.status);return res.status(502).json({error:'The assistant is temporarily unavailable. Please use the contact links.'});}
     const answer=(data.output||[]).flatMap(o=>o.content||[]).filter(c=>c.type==='output_text').map(c=>c.text).join('\n').trim();
     return res.status(200).json({reply:answer||'Please contact Qasim directly at qraza543@gmail.com.'});
