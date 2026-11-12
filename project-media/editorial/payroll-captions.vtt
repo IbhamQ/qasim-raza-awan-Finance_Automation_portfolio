@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00.000 --> 00:08.000
+Select the Restaurant365 export and Humi import template.
+
+00:08.000 --> 00:16.000
+Normalize employee names and parse ordered pay rates, using a one-cent matching tolerance.
+
+00:16.000 --> 00:24.000
+Allocate regular and overtime hours across the correct base and additional job columns.
+
+00:24.000 --> 00:32.000
+Review the new Payroll Humi workbook, with the original template structure preserved, then save.

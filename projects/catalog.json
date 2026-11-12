@@ -1,85 +1,122 @@
 [
   {
     "id": "payroll",
-    "title": "Restaurant365 → Humi payroll processor",
+    "title": "Automating multi-rate payroll conversion from Restaurant365 to Humi",
     "category": "finance automation",
     "role": "Built personally",
-    "problem": "Payroll exports needed to fit a different system’s import structure.",
-    "solution": "An Excel/VBA processor matches employees and pay structures, transforms regular and overtime hours, and validates the output.",
-    "result": "A repeatable, import-ready payroll file with checks that remain visible to the user.",
-    "tools": "Excel · VBA · CSV validation",
+    "problem": "The source export listed hours across multiple employee and job-rate records, while Humi required those hours in a different, rate-specific column structure. Rebuilding the import manually meant repeatedly interpreting names, pay rates and overtime categories.",
+    "solution": "Built a one-click Excel/VBA converter. It normalizes employee names, parses rates embedded in the Humi template, and matches source pay rates within a $0.01 tolerance. The first and last template rates identify base regular and overtime pay; intermediate pairs identify additional jobs. Regular and overtime hours are routed to their corresponding destination columns across multi-line employee records.",
+    "result": "Replaced recurring manual reformatting with a reusable conversion: select the R365 export, select the Humi template, run the macro, then review and save the new Payroll Humi workbook. The template structure is retained.",
+    "tools": "Excel · VBA · Regular expressions · Dictionary matching · Payroll imports",
     "media": "payroll-automation",
-    "image": "02_humi_import_output.png"
+    "image": "02_humi_import_output.png",
+    "why": "The difficult part was preserving payroll meaning across incompatible layouts. A correct name match alone was insufficient: the same employee could have several pay categories, each requiring a different destination.",
+    "rules": [
+      "Case-insensitive employee matching after separating embedded rate text.",
+      "Ordered rate parsing supports variable numbers of additional jobs.",
+      "Unmatched records are skipped by the original macro; the output still requires payroll review."
+    ]
   },
   {
     "id": "retirement",
-    "title": "Retirement planning model",
+    "title": "A retirement contribution model that works back from the target",
     "category": "finance",
     "role": "Built personally",
-    "problem": "Planning assumptions and long-term projections needed to work in a reusable model.",
-    "solution": "Built contribution calculations, multi-year projections, scenario inputs, VBA forms and dashboards.",
-    "result": "A reviewable model for comparing assumptions and projected outcomes.",
+    "problem": "A savings forecast alone could not answer the client’s planning question: what contribution is needed to fund retirement income and still leave a desired estate, after tax and planned cash movements?",
+    "solution": "Built an Excel/VBA model linking current age, retirement age, life expectancy, opening assets, returns and tax assumptions to annual cash-flow projections. It incorporates lump-sum contributions and withdrawals, calculates required contributions, and compares best, likely and worst scenarios. Actual contributions feed dashboard and chart comparisons against the plan.",
+    "result": "Delivered a reusable planning tool for testing how changes in contributions, returns, withdrawals and estate goals affect the long-term outcome.",
     "tools": "Excel · VBA · Financial modelling",
     "media": "retirement-model",
-    "image": "02_dashboard_summary.png"
+    "image": "02_dashboard_summary.png",
+    "why": "The model connects accumulation and retirement drawdown. Changing a goal or a future withdrawal needs to flow through the projection, rather than leave the user rebuilding a schedule.",
+    "rules": [
+      "Separate assumptions, projections, actuals, dashboard and chart views.",
+      "Retirement income and the desired ending estate are explicit model inputs.",
+      "Scenario comparisons make the effect of alternative assumptions visible."
+    ]
   },
   {
     "id": "wealth-transfer",
-    "title": "Wealth transfer tracker",
+    "title": "Prioritising inbound wire transfers by age, status and owner",
     "category": "finance operations",
     "role": "Built personally",
-    "problem": "Transfers, amounts and institution statuses needed a consistent tracking structure.",
-    "solution": "Built a workbook and dashboard for the transfer pipeline, contract information, amounts and status controls.",
-    "result": "A consolidated view of transfer progress and outstanding actions.",
+    "problem": "An inbound transfer register needed to support follow-up, not merely record amounts. The team needed to identify pending items, the responsible advisor and the transfers approaching escalation thresholds.",
+    "solution": "Built a formula-driven Excel transfer log and dashboard with advisor, client, institution, account, reference and status fields. Business-day ageing uses an Alberta holiday calendar; conditional formatting highlights items beyond 20 and 30 business days. Lists and dropdowns standardize entry without requiring VBA.",
+    "result": "Delivered an offline-capable tracker with a consolidated pipeline and visible follow-up priorities, suitable for the client’s Excel/SharePoint working setup.",
     "tools": "Excel · Tracking · Dashboards",
     "media": "wealth-transfer-tracker",
-    "image": "01_transfer_pipeline.png"
+    "image": "01_transfer_pipeline.png",
+    "why": "Business-day ageing provides a more meaningful follow-up signal than elapsed calendar days. Linking that signal to ownership and status makes the register useful for daily operations.",
+    "rules": [
+      "Business-day calculations account for weekends and the specified holiday list.",
+      "20- and 30-business-day thresholds distinguish follow-up priorities.",
+      "Formula-based operation avoids a dependency on enabled macros."
+    ]
   },
   {
     "id": "profit-loss",
-    "title": "P&L budget versus actual dashboard",
+    "title": "Turning actual-versus-budget data into a management reporting view",
     "category": "finance reporting",
     "role": "Built personally",
-    "problem": "Recurring financial reporting needed clear actual, budget and variance views.",
-    "solution": "Built P&L and budget-versus-actual reporting using Power Query, pivots and dashboard views.",
-    "result": "Reusable financial-statement and variance reporting for period review.",
-    "tools": "Excel · Power Query · PivotTables",
+    "problem": "Leadership needed to compare trading performance with budget without working through a detailed financial statement line by line.",
+    "solution": "Built an Excel reporting model using Power Query and Power Pivot, with actual, budget and variance measures. The dashboard combines sales, overheads, profit and margin indicators with monthly comparisons, cost-category analysis and year-to-date reporting.",
+    "result": "Delivered a refreshable management reporting view that connects high-level performance indicators with the underlying cost and variance detail.",
+    "tools": "Excel · Power Query · Power Pivot · Budget-versus-actual reporting",
     "media": "profit-loss-dashboard",
-    "image": "02_actual_versus_budget_analysis.png"
+    "image": "02_actual_versus_budget_analysis.png",
+    "why": "A sales increase is not automatically a profitability improvement. Presenting revenue, cost movements and margins together helps reviewers distinguish growth from pressure on earnings.",
+    "rules": [
+      "Actual and budget measures are presented together.",
+      "Monthly and year-to-date views support different review periods.",
+      "Variance values provide context for the headline KPIs."
+    ]
   },
   {
     "id": "data-cleaning",
-    "title": "One-click contact cleaning",
+    "title": "A repeatable preparation workflow for inconsistent contact data",
     "category": "automation operations",
     "role": "Built personally",
-    "problem": "Contact files contained duplicates and inconsistent email fields.",
-    "solution": "Built a macro-enabled cleaning workflow with deduplication, email cleanup and CSV exports.",
-    "result": "Cleaned, exportable contact files produced through a repeatable process.",
+    "problem": "Contact files contained duplicate records and inconsistent email fields, creating repeated preparation work before downstream use.",
+    "solution": "Built a macro-enabled Excel cleaning workflow to standardize contact data, remove duplicate entries, clean email fields and generate reusable CSV outputs.",
+    "result": "Delivered cleaned output files and a reusable preparation tool, replacing repeated manual cleanup for the same class of input.",
     "tools": "Excel · VBA · CSV",
     "media": "data-cleaning",
-    "image": "03_cleaned_csv_output.png"
+    "image": "03_cleaned_csv_output.png",
+    "why": "The value is in applying a consistent transformation each time a new file arrives, rather than fixing a single spreadsheet once.",
+    "rules": [
+      "Contact cleaning and email cleanup are part of the transformation.",
+      "Deduplicated output is retained separately from the source.",
+      "CSV exports support the next stage of the client’s workflow."
+    ]
   },
   {
     "id": "executive-agenda",
-    "title": "Executive agenda and weekly rollover",
+    "title": "An executive meeting workflow that preserves unfinished actions",
     "category": "automation operations",
     "role": "Built personally",
-    "problem": "Meeting agendas and action items needed to carry forward between weeks.",
-    "solution": "Built a macro-enabled agenda workbook covering meeting details, attendees, actions and weekly rollover.",
-    "result": "Reusable meeting preparation and a consistent action-tracking structure.",
+    "problem": "Weekly meeting preparation required carrying forward open topics and actions while rebuilding the same agenda structure. Discussion coverage and action completion were also difficult to review at a glance.",
+    "solution": "Built an Excel/VBA agenda with objectives, attendees, presenters, scheduled and actual discussion time, notes, action owners, due dates and status tracking. The Next Week Rollover control creates the next meeting sheet, carries unfinished work forward, resets discussion checkboxes and preserves the layout and progress charts.",
+    "result": "Delivered a repeatable weekly planning workflow that keeps outstanding decisions and actions visible between meetings.",
     "tools": "Excel · VBA · Workflow",
     "media": "executive-agenda",
-    "image": "03_weekly_rollover_dashboard.png"
+    "image": "03_weekly_rollover_dashboard.png",
+    "why": "The automation preserves continuity between meetings. It carries the work that still needs attention while resetting the controls used to track the new discussion.",
+    "rules": [
+      "Separate agenda-discussion and action-completion indicators.",
+      "Time calculations support review of the meeting schedule.",
+      "Rollover retains the workbook presentation and reusable structure."
+    ]
   },
   {
     "id": "purchase-orders",
-    "title": "Google Sheets purchase-order system",
+    "title": "Mobile purchase-order capture from field to procurement",
     "category": "automation operations",
     "role": "Managed freelancer delivery",
-    "problem": "Purchase orders needed a consistent creation and tracking process.",
-    "solution": "Scoped and managed freelancer delivery of a Google Sheets and Apps Script purchase-order system.",
-    "result": "A completed purchase-order workflow delivered through Finnovative.",
-    "tools": "Google Sheets · Apps Script"
+    "problem": "Field users needed to submit purchase orders from their phones, including supporting photographs and a vendor signature, without losing the request between the form and the procurement team.",
+    "solution": "Managed freelancer delivery of a Google Sheets and Apps Script workflow with farm, category, subcategory and vendor dropdowns, vendor signature capture and phone camera/gallery uploads. Completed requests and supporting images are emailed to procurement and retained in a backend tracker.",
+    "result": "Delivered a mobile-accessible purchase-order process connecting field entry, supporting evidence, email handoff and a central record.",
+    "tools": "Google Sheets · Apps Script · Mobile forms · Email workflow",
+    "why": "The workflow connects the point where a request is raised with the information procurement needs to act on it. Qasim managed the delivery; implementation was performed by a freelancer."
   },
   {
     "id": "gsa-pricing",
