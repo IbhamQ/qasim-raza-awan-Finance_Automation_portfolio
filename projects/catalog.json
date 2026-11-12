@@ -1,0 +1,124 @@
+[
+  {
+    "id": "payroll",
+    "title": "Restaurant365 → Humi payroll processor",
+    "category": "finance automation",
+    "role": "Built personally",
+    "problem": "Payroll exports needed to fit a different system’s import structure.",
+    "solution": "An Excel/VBA processor matches employees and pay structures, transforms regular and overtime hours, and validates the output.",
+    "result": "A repeatable, import-ready payroll file with checks that remain visible to the user.",
+    "tools": "Excel · VBA · CSV validation",
+    "media": "payroll-automation",
+    "image": "02_humi_import_output.png"
+  },
+  {
+    "id": "retirement",
+    "title": "Retirement planning model",
+    "category": "finance",
+    "role": "Built personally",
+    "problem": "Planning assumptions and long-term projections needed to work in a reusable model.",
+    "solution": "Built contribution calculations, multi-year projections, scenario inputs, VBA forms and dashboards.",
+    "result": "A reviewable model for comparing assumptions and projected outcomes.",
+    "tools": "Excel · VBA · Financial modelling",
+    "media": "retirement-model",
+    "image": "02_dashboard_summary.png"
+  },
+  {
+    "id": "wealth-transfer",
+    "title": "Wealth transfer tracker",
+    "category": "finance operations",
+    "role": "Built personally",
+    "problem": "Transfers, amounts and institution statuses needed a consistent tracking structure.",
+    "solution": "Built a workbook and dashboard for the transfer pipeline, contract information, amounts and status controls.",
+    "result": "A consolidated view of transfer progress and outstanding actions.",
+    "tools": "Excel · Tracking · Dashboards",
+    "media": "wealth-transfer-tracker",
+    "image": "01_transfer_pipeline.png"
+  },
+  {
+    "id": "profit-loss",
+    "title": "P&L budget versus actual dashboard",
+    "category": "finance reporting",
+    "role": "Built personally",
+    "problem": "Recurring financial reporting needed clear actual, budget and variance views.",
+    "solution": "Built P&L and budget-versus-actual reporting using Power Query, pivots and dashboard views.",
+    "result": "Reusable financial-statement and variance reporting for period review.",
+    "tools": "Excel · Power Query · PivotTables",
+    "media": "profit-loss-dashboard",
+    "image": "02_actual_versus_budget_analysis.png"
+  },
+  {
+    "id": "data-cleaning",
+    "title": "One-click contact cleaning",
+    "category": "automation operations",
+    "role": "Built personally",
+    "problem": "Contact files contained duplicates and inconsistent email fields.",
+    "solution": "Built a macro-enabled cleaning workflow with deduplication, email cleanup and CSV exports.",
+    "result": "Cleaned, exportable contact files produced through a repeatable process.",
+    "tools": "Excel · VBA · CSV",
+    "media": "data-cleaning",
+    "image": "03_cleaned_csv_output.png"
+  },
+  {
+    "id": "executive-agenda",
+    "title": "Executive agenda and weekly rollover",
+    "category": "automation operations",
+    "role": "Built personally",
+    "problem": "Meeting agendas and action items needed to carry forward between weeks.",
+    "solution": "Built a macro-enabled agenda workbook covering meeting details, attendees, actions and weekly rollover.",
+    "result": "Reusable meeting preparation and a consistent action-tracking structure.",
+    "tools": "Excel · VBA · Workflow",
+    "media": "executive-agenda",
+    "image": "03_weekly_rollover_dashboard.png"
+  },
+  {
+    "id": "purchase-orders",
+    "title": "Google Sheets purchase-order system",
+    "category": "automation operations",
+    "role": "Managed freelancer delivery",
+    "problem": "Purchase orders needed a consistent creation and tracking process.",
+    "solution": "Scoped and managed freelancer delivery of a Google Sheets and Apps Script purchase-order system.",
+    "result": "A completed purchase-order workflow delivered through Finnovative.",
+    "tools": "Google Sheets · Apps Script"
+  },
+  {
+    "id": "gsa-pricing",
+    "title": "GSA vendor pricing proposal",
+    "category": "finance operations",
+    "role": "Mixed delivery with freelancer support",
+    "problem": "Vendor pricing needed to be organized into a usable proposal.",
+    "solution": "Delivered and managed the pricing/proposal work with freelancer support.",
+    "result": "A completed vendor pricing proposal.",
+    "tools": "Pricing analysis · Proposal preparation"
+  },
+  {
+    "id": "crm-reporting",
+    "title": "CRM and Looker Studio reporting",
+    "category": "reporting operations",
+    "role": "Managed freelancer delivery",
+    "problem": "Client CRM and reporting requirements needed coordinated implementation.",
+    "solution": "Managed freelancer delivery of CRM and Looker Studio work, overseeing requirements and the resulting deliverables.",
+    "result": "Client CRM/reporting work delivered under Qasim’s project oversight.",
+    "tools": "CRM · Looker Studio · Project delivery"
+  },
+  {
+    "id": "commissions",
+    "title": "Commission calculator",
+    "category": "finance automation",
+    "role": "Managed freelancer delivery",
+    "problem": "Commission calculations needed a repeatable tool.",
+    "solution": "Managed freelancer delivery of a commission-calculation and reporting tool.",
+    "result": "A client commission tool delivered through Finnovative.",
+    "tools": "Commission calculations · Project delivery"
+  },
+  {
+    "id": "tenant-tracker",
+    "title": "Tenant complaint tracker",
+    "category": "operations automation",
+    "role": "Project delivery",
+    "problem": "Complaints across multiple properties and tenants needed a common tracking system.",
+    "solution": "Delivered a tracker with status dropdowns, colour coding, automatic IDs and timestamps.",
+    "result": "A consistent record of complaints and their progress.",
+    "tools": "Spreadsheet workflow · Status tracking"
+  }
+]
