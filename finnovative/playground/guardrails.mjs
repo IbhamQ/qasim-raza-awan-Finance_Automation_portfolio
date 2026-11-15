@@ -1,4 +1,5 @@
-export const GROQ_MODEL='llama-3.3-70b-versatile';
+export const GROQ_MODEL='openai/gpt-oss-120b';
+export const GROQ_FALLBACK_MODEL='openai/gpt-oss-20b';
 export const MAX_AI_TOKENS=150;
 export const LIVE_LIMIT=8;
 export const LIVE_USAGE_KEY='finnovative-live-ai-used-v2';

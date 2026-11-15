@@ -40,7 +40,8 @@
 <footer class="page-footer"><span>A Finnovative Automations demonstration.</span><a href="mailto:finnovative.automations@gmail.com">Build this around your business <svg><use href="#i-arrow"/></svg></a></footer></main>
 <dialog id="reset-dialog"><h2>Start with fresh sample data?</h2><p>This clears this playground’s local conversations, bookings and tickets. Your other portfolio demos are unaffected.</p><div><button class="button" id="cancel-reset">Keep this session</button><button class="button primary" id="confirm-reset">Reset sample workspace</button></div></dialog>
 <noscript>This interactive demonstration requires JavaScript.</noscript><script type="module">
-const GROQ_MODEL='llama-3.3-70b-versatile';
+const GROQ_MODEL='openai/gpt-oss-120b';
+const GROQ_FALLBACK_MODEL='openai/gpt-oss-20b';
 const MAX_AI_TOKENS=150;
 const LIVE_LIMIT=8;
 const LIVE_USAGE_KEY='finnovative-live-ai-used-v2';
