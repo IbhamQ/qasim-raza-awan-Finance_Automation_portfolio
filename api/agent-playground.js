@@ -132,7 +132,7 @@ async function respond(body,{groqKey=process.env.GROQ_API_KEY,fetchImpl=fetch,re
  if(!reserve())return {status:200,body:automatedReply('limit')};
  try{
   const r=await fetchImpl('https://api.groq.com/openai/v1/chat/completions',{method:'POST',headers:{Authorization:'Bearer '+groqKey,'Content-Type':'application/json'},body:JSON.stringify(request),signal:AbortSignal.timeout(15000)});
-  if([401,403,404].includes(r.status))return {status:503,body:{error:'The Groq key or llama-3.3-70b-versatile model is not authorized or available. Guided demos remain available.',calledApi:true}};
+  if([401,403,404].includes(r.status)){const errors={401:'Groq rejected the configured API key. Update GROQ_API_KEY in Vercel and redeploy.',403:'Groq denied access to llama-3.3-70b-versatile for this account or project.',404:'Groq could not find or provide llama-3.3-70b-versatile for this account.'};return {status:503,body:{error:errors[r.status]+' Guided demos remain available.',providerStatus:r.status,calledApi:true}};}
   if(r.status===429)return {status:429,body:{error:'Groq’s request or token limit has been reached. Try later or use guided demos. No other AI provider was called.',calledApi:true}};
   if(!r.ok)return {status:502,body:{error:'Live AI is unavailable. Please use guided demos or book a consultation.',calledApi:true}};
   const data=await r.json(),choice=data.choices?.[0];
